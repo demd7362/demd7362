@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <script>
+        $(function () {
+            $("table").css({
+                "border": "1px solid",
+                "width": "500px",
+                "height": "300px",
+                "text-align": "center",
+                "table-layout": "fixed"
+            });
+        });
+        function calculator(val) {
+            $("#cal").text($("#cal").text() + val);
+        }
+
+        function cal() {
+            let result = eval($("#cal").text());
+            $("#cal_val").text(result);
+            if ($("#cal_val").text().length > 0) {
+                $("#cal").text($("#cal_val").text());
+            }
+        }
+
+        function reset() {
+            $("#cal").text("");
+            $("#cal_val").text("");
+        }
+
+        function backspace() {
+            $("#cal").text($("#cal").text().substring(0, $("#cal").text().length - 1));
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="3" id="cal" class="temp" style="height: 50px; "></td>
+            <!-- 열을 합치고자 할때 colspan, 행을 합치고자 할때 rowspan -->
+            <td id="cal_val"></td>
+        </tr>
+        <!-- 0번 -->
+        <tr>
+            <td><button onclick="reset();">C</button></td>
+            <td><button onclick="calculator('(');">(</button></td>
+            <td><button onclick="calculator(')');">)</button></td>
+            <td><button onclick="calculator('*');">*</button></td>
+        </tr>
+        <!-- 1번 -->
+        <tr>
+            <td><button onclick="calculator('7');">7</button></td>
+            <td><button onclick="calculator('8');">8</button></td>
+            <td><button onclick="calculator('9');">9</button></td>
+            <td><button onclick="calculator('/');">/</button></td>
+        </tr>
+        <!-- 2번 -->
+        <tr>
+            <td><button onclick="calculator('4');">4</button></td>
+            <td><button onclick="calculator('5');">5</button></td>
+            <td><button onclick="calculator('6');">6</button></td>
+            <td><button onclick="calculator('-');">-</button></td>
+        </tr>
+        <!-- 3번 -->
+        <tr>
+            <td><button onclick="calculator('1');">1</button></td>
+            <td><button onclick="calculator('2');">2</button></td>
+            <td><button onclick="calculator('3');">3</button></td>
+            <td><button onclick="calculator('+');">+</button></td>
+        </tr>
+        <!-- 4번 -->
+        <tr>
+            <td><button onclick="calculator('.');">.</button></td>
+            <td><button onclick="calculator('0');">0</button></td>
+            <td><button onclick="backspace();">B</button></td>
+            <td><button onclick="cal();">=</button></td>
+        </tr>
+        <!-- 5번 -->
+    </table>
+</body>
+</html>
