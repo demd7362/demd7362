@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    position: absolute;
+    border: "10px solid yellow";
+}
+
+
+
+
+header ul li {
+    display: inline;
+    
+}
