@@ -1,3 +1,5 @@
+package Ch16.sec02.exam02;
+
 public class ButtonExample {
     public static void main(String[] args) {
         Button btnOk = new Button();
