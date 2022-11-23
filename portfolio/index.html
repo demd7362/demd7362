@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -8,19 +8,24 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8d10a078fa.js" crossorigin="anonymous"></script>
     <script>
         $(function () {
+
             $(".navbar_toggleBtn").on("click", function () {
                 if ($(".navbar_menu").css("display") == "none" && $(".navbar_icons").css("display") == "none") {
                     $(".navbar_menu").css("display", "flex");
                     $(".navbar_icons").css("display", "flex");
                 } else {
-                    $(".navbar_menu").css("display", "none");
-                    $(".navbar_icons").css("display", "none");
+                    $(".navbar_menu").toggle();
+                    $(".navbar_icons").toggle();
                 }
             })
+
 
             $("#to-top").on("click", function () {
                 $("html, body").animate({
@@ -29,11 +34,21 @@
                 }, 500);
             });
 
-            $('#lead-down span').click(function () {
-                var scrollDistance = $('#lead').next().offset().top;
-                $('html, body').animate({
-                    scrollTop: scrollDistance + 'px'
+            $("#lead-down span").click(function () {
+                var scrollDistance = $("#lead").next().offset().top;
+                $("html, body").animate({
+                    scrollTop: scrollDistance + "px"
                 }, 500);
+            });
+
+            
+
+            
+            $(this).click(function () {
+                var x = $(this).attr("href");
+                $("html, body").animate({
+                    scrollTop:$(x).offset().top
+                });
             });
 
 
@@ -50,10 +65,11 @@
                 <a href="#"></a>
             </div>
             <ul class="navbar_menu">
-                <li> <a href="#">Home</a></li>
-                <li><a href="#">About me</a></li>
-                <li><a href="#">Education</a></li>
-                <li><a href="#">Skills</a></li>
+
+                <li><a href="#about">About me</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
             </ul>
             <ul class="navbar_icons">
                 <li>
@@ -62,7 +78,9 @@
                     </a>
                 </li>
                 <li>
-                    <i class="fa-regular fa-user"></i>
+                    <a href="#">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
                 </li>
             </ul>
             <a href="#" class="navbar_toggleBtn">
@@ -96,7 +114,7 @@
                 </div>
                 <div class="col-md-8">
                     <p>
-                        메뉴 누르면 누른곳으로 
+
                     </p>
                 </div>
             </div>
@@ -109,16 +127,78 @@
         <div class="education-block">
             <h3>노원 이젠 컴퓨터 아카데미</h3>
             <span class="education-date">Sept 2021 - Feb 2022</span>
-            <h4>스마트 웹&앱 JAVA 과정</h4>
+            <h4>JAVA 스마트 웹&앱 과정</h4>
             <p>
                 단 한번의 지각이나 결석 없이 교육 과정을 수료하였습니다.
             </p>
         </div>
         <!-- End .education-block -->
 
-        
+
     </div>
     <!-- End #education -->
+
+    <div id="projects" class="background-alt">
+        <h2 class="heading">Projects</h2>
+        <div class="container">
+            <div class="row">
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/project.jpg" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Project</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam
+                            volutpat
+                            laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget
+                            efficitur libero. Morbi dapibus porta quam laoreet placerat. Donec
+                            eu vehicula neque. Donec viverra lorem nunc, tempus euismod eros sollicitudin ut. Quisque et
+                            tincidunt libero. Donec id pharetra justo. Proin euismod lacinia dolor, eu scelerisque justo
+                            tempus pharetra. Vivamus nunc justo, finibus
+                            ut nisl sed, euismod rhoncus nulla. Proin sed magna egestas, egestas ante et, congue eros.
+                            In
+                            consequat, mauris dapibus tincidunt suscipit, ex libero aliquet diam, at maximus risus enim
+                            non
+                            leo.
+                        </p>
+                        <a href="#">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/project.jpg" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Project</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam
+                            volutpat
+                            laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget
+                            efficitur libero. Morbi dapibus porta quam laoreet placerat. Donec
+                            eu vehicula neque. Donec viverra lorem nunc, tempus euismod eros sollicitudin ut. Quisque et
+                            tincidunt libero. Donec id pharetra justo. Proin euismod lacinia dolor, eu scelerisque justo
+                            tempus pharetra. Vivamus nunc justo, finibus
+                            ut nisl sed, euismod rhoncus nulla. Proin sed magna egestas, egestas ante et, congue eros.
+                            In
+                            consequat, mauris dapibus tincidunt suscipit, ex libero aliquet diam, at maximus risus enim
+                            non
+                            leo.
+                        </p>
+                        <a href="#">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+            </div>
+        </div>
+    </div>
+    <!-- End #projects -->
 
     <div id="skills">
         <h2 class="heading">Skills</h2>
@@ -141,7 +221,7 @@
                         Copyright &copy; <span id="current-year">2022</span> demd7362
                     </p>
                 </div>
-                
+
                 <div class="col-sm-2 top">
                     <span id="to-top">
                         <i class="fa fa-chevron-up" aria-hidden="true"></i>
