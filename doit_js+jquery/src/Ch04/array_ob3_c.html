@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 배열객체 </title>
+<script>
+	var greenArr = ["교대", "방배", "강남"];
+	var yellowArr = ["미금","정자","수서"];
+    
+    greenArr.splice(2,1,"서초","역삼");
+    console.log(greenArr);
+
+    let data1 = yellowArr.pop(); // 가장 마지막 인덱스 잘라냄 / 수서
+    let data2 = yellowArr.shift(); // 첫번째 인덱스 잘라내기 / 미금
+
+    yellowArr.push(data2); // data2(미금)를 마지막 인덱스에 붙여넣음 / 정자 미금
+    console.log(yellowArr);
+    
+
+    yellowArr.unshift(data1); // data1(수서)를 첫번째 인덱스에 붙여넣음 / 수서 정자 미금
+    console.log(yellowArr);
+</script>
+</head>
+<body>
+</body>
+</html>

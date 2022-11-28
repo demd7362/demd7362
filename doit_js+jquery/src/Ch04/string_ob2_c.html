@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 문자 객체 </title>
+<script>
+    let input = prompt("이름을 영문으로 입력하세요");
+    // 영문만, 소문자->대문자  완료시 연락처인풋 , 뒤 4자리 ****처리 하이픈 입력x
+    
+    let upperName = input.toUpperCase();
+    document.write(upperName+"<br>");
+
+    let userNum = prompt("연락처 입력");
+    let result = userNum.substring(0,userNum.length-4)+ "****";
+    document.write(result+"<br>");
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
