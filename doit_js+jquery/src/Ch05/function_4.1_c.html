@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 함수 </title>
+<script>
+	function sum(){
+        let sum = 0;
+        for(let i=0; i<arguments.length; i++){
+            sum += arguments[i];
+        }
+        document.write(sum);
+    }
+
+    sum(10,20,30); // 매개변수 정의되지 않은 함수에 매개변수를 집어넣을 경우/ 정의된 함수에 매개변수를 집어넣을경우
+    // 아규먼츠라는 배열값에 저장됨
+</script>
+</head>
+<body>
+</body>
+</html>

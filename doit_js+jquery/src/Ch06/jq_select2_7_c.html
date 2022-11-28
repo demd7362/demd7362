@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	var obj = [
+		{"area":"서울"},
+		{"area":"부산"},
+		{"area":"전주"}
+	];
+    $(obj).each(function(i,o){
+        console.log(i+"는",o);
+    });
+	console.log("==== The End 1 ====");
+    $("#menu2 li").each(function(i,o){ // li 요소를 배열에 넣고 하나씩 꺼냄
+        console.log(i+"는",o);
+    });
+	console.log("==== The End 2 ====");
+    $("#menu2 li").each(function(i){
+        console.log(i+ "는",$(this));
+    });
+
+});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu1">
+			<li>내용1-1</li>
+			<li>내용1-2</li>
+			<li>내용1-3</li>
+	</ul>
+	<ul id="menu2">
+		<li>내용2-1</li>
+		<li>내용2-2</li>
+		<li>내용2-3</li>
+	</ul>
+</body>
+</html>
