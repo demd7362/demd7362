@@ -1,0 +1,13 @@
+header {
+	color: red;
+}
+
+h1 {
+	color: blue;
+}
+
+p {
+	color: orange;
+}
+
+/* 오버라이드 가능 */

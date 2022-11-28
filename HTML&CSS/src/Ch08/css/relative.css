@@ -1,0 +1,27 @@
+#box1 {
+	width: 500px;
+	height: 200px;
+	background-color: gray;
+}
+
+#position_relative_parent {
+	width: 500px;
+
+
+	/*height: 500px;*/
+	/* relative 특징1 자식의 값 영향을 받아서 200px이 됨 */
+	background-color: yellow;
+}
+
+#position_relative_child {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	/*margin-top: 100px;*/
+	/* 특징 3 마진 값 사용가능 */
+
+	/*top: 100px;*/
+	 /* 특징 2 마진병합현상 생김 */
+}
+

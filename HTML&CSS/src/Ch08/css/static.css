@@ -1,0 +1,16 @@
+#position_static_parent {
+	width: 500px;
+	/*height: 500px;*/
+	background-color: yellow;
+}
+
+#position_static_child {
+	/*position: static;*/
+	width: 200px;
+	height: 200px;
+	/* 자식의 height값이 부모한테 적용 */
+	background-color: blue;
+	margin-top: 100px;
+	/* 마진 병합현상 */
+	
+}

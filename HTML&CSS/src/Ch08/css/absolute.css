@@ -1,0 +1,24 @@
+#box1 {
+	width: 500px;
+	height: 200px;
+	background-color: gray;
+}
+
+#position_absolute_parent {
+	width: 500px;
+	height: 500px;
+	background-color: yellow;
+	position: relative;
+}
+
+#position_absolute_child {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	/*margin-top: 100px;*/
+
+	top: 100px;
+
+}
+

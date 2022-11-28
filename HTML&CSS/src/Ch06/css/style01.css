@@ -1,0 +1,11 @@
+.font {
+	font-size: 100px;
+	/*글자 크기*/
+	font-family: Arial, Times, sans-serif;
+	/*글꼴(1순위,2순위,3순위)*/
+	font-style: italic;
+	/*글자 모양*/
+	font-weight: 900;
+	/*글자 굵기*/
+}
+
