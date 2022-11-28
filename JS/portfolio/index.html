@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>정지훈 포트폴리오</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -15,16 +15,31 @@
     <script src="https://kit.fontawesome.com/8d10a078fa.js" crossorigin="anonymous"></script>
     <script>
         $(function () {
-
+            // 네비게이션 바 슬라이드
             $(".navbar_toggleBtn").on("click", function () {
-                if ($(".navbar_menu").css("display") == "none" && $(".navbar_icons").css("display") == "none") {
-                    $(".navbar_menu").css("display", "flex");
+                if ($(".navbar_menu").css("display") == "none") {
+                    $(".navbar_menu").slideDown(500, function () {
+                        $(".navbar_menu").css("display", "flex");
+                    });
                     $(".navbar_icons").css("display", "flex");
+
                 } else {
-                    $(".navbar_menu").toggle();
-                    $(".navbar_icons").toggle();
+                    $(".navbar_menu").slideUp(500, function () {
+                        $(".navbar_menu").css("display", "none");
+                    });
+                    $(".navbar_icons").css("display", "none");
                 }
-            })
+            });
+
+            // 반응형 네비게이션 바 메뉴 사라짐 방지
+            $(window).resize(function () {
+                if ($(window).width() > 768 && $(".navbar_menu").css("display") == "none" ) {
+                    $(".navbar_menu").css("display","flex");
+                    $(".navbar_icons").css("display","flex");
+                        
+
+                }
+            });
 
 
             $("#to-top").on("click", function () {
@@ -41,19 +56,31 @@
                 }, 500);
             });
 
-            
-
-            
-            $(this).click(function () {
-                var x = $(this).attr("href");
+            $("#about").click(function () {
+                var scrollDistance2 = $("#about").offset().top;
                 $("html, body").animate({
-                    scrollTop:$(x).offset().top
-                });
+                    
+                    scrollTop: scrollDistance2 + "px"
+                }, 500);
             });
 
+            
+
+            
+	
 
 
         });
+        function copyEmailAdd() {
+            var copyText = document.createElement("textarea");
+            document.body.appendChild(copyText);
+            copyText.value = 'demd7362@gmail.com';
+            copyText.select();
+            document.execCommand('copy');
+            document.body.removeChild(copyText);
+            alert(copyText.value + '\n복사되었습니다. 감사합니다!');
+        }
+
     </script>
 </head>
 
@@ -61,25 +88,30 @@
     <header>
         <nav class="navbar">
             <div class="navbar_logo">
-                <i class="fas fa-blog"></i>
-                <a href="#"></a>
+                <a href="https://github.com/demd7362/portfolio"><i class="fa-solid fa-right-to-bracket"
+                        title="포트폴리오 리포지토리로 이동합니다."></i></a>
             </div>
             <ul class="navbar_menu">
 
-                <li><a href="#about">About me</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#" onclick="aboutScroll()">About me</a></li>
+                <li><a href="#" >Education</a></li>
+                <li><a href="#" >Projects</a></li>
+                <li><a href="#" >Skills</a></li>
             </ul>
             <ul class="navbar_icons">
                 <li>
                     <a href="https://github.com/demd7362">
-                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-github" title="면접자의 Git으로 이동합니다."></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fa-regular fa-user"></i>
+                    <a href="tel:010-4544-7362">
+                        <i class="fa-solid fa-phone" title="면접자에게 전화합니다."></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:demd7362@gmail.com" onclick="copyEmailAdd()">
+                        <i class="fa-solid fa-envelope" title="면접자의 이메일 주소를 클립보드에 복사합니다."></i>
                     </a>
                 </li>
             </ul>
@@ -114,7 +146,14 @@
                 </div>
                 <div class="col-md-8">
                     <p>
-
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat
+                        laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget
+                        efficitur libero. Morbi dapibus porta quam laoreet placerat. Donec eu vehicula neque. Donec
+                        viverra lorem nunc, tempus euismod eros sollicitudin ut. Quisque et tincidunt libero. Donec id
+                        pharetra justo. Proin euismod lacinia dolor, eu scelerisque justo tempus pharetra. Vivamus nunc
+                        justo, finibus ut nisl sed, euismod rhoncus nulla. Proin sed magna egestas, egestas ante et,
+                        congue eros. In consequat, mauris dapibus tincidunt suscipit, ex libero aliquet diam, at maximus
+                        risus enim non leo.
                     </p>
                 </div>
             </div>
@@ -230,7 +269,7 @@
                 <div class="col-sm-5 social">
                     <ul>
                         <li>
-                            <a href="https://github.com/" target="_blank"><i class="fa fa-github"
+                            <a href="https://github.com/demd7362" target="_blank"><i class="fa fa-github"
                                     aria-hidden="true"></i></a>
                         </li>
                         <li>

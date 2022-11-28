@@ -23,6 +23,7 @@ body.active {
     align-items: center;
     background-color: var(--background-color);
     padding: 8px 12px;
+    
 }
 
 .navbar_logo {
@@ -83,6 +84,11 @@ body.active {
     font-size: 20px;
     display: none;
     top: 15px;
+}
+
+.navbar_toggleBtn:hover {
+    color: var(--accent-color);
+    border-radius: 3px;
 }
 
 
@@ -800,13 +806,18 @@ footer {
     #about p {
         text-align: left
     }
+    
+    
 }
 
 @media only screen and (max-width: 768px) {
+    
+    
     .navbar {
         flex-direction: column;
         margin: 0;
         align-items: flex-start;
+        
     }
 
     .navbar_menu {
@@ -834,10 +845,7 @@ footer {
         display: block;
     }
 
-    .navbar__menu.active,
-    .navbar__icons.active {
-        display: flex;
-    }
+    
 
 
     #mobile-menu-open,
@@ -845,7 +853,7 @@ footer {
         display: block
     }
 
-
+    
 
 
 
