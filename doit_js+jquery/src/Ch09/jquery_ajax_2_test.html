@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Ajax </title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function() {
+            $.ajax({
+                url: "js/MOCK_DATA.json",
+                dataType: "json",
+                success: function(data) {
+                    if (data.length > 0) {
+                        let tb = $("<table/>");
+                        for (var i of data) {
+                            let $id = i.id;
+                            let $first_name = i.first_name;
+                            let $last_name = i.last_name;
+                            let $email = i.email;
+                            let $gender = i.gender;
+
+                            let row = $("<tr/>").append(
+                                $("<td/>").text($id),
+                                $("<td/>").text($first_name),
+                                $("<td/>").text($last_name),
+                                $("<td/>").text($email),
+                                $("<td/>").text($gender)
+                            );
+
+                            tb.append(row);
+
+                        }
+                        $(".wrap").append(tb);
+                    }
+                }
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrap"></div>
+</body>
+
+</html>

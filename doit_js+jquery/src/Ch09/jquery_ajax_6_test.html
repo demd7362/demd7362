@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Ajax </title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            
+            $.ajax({
+                url: "http://demd7362.dothome.co.kr/member.php?callback=myFnc",
+                dataType: "jsonp",
+                    
+
+            }).done(function myFnc(data){
+                console.log(data)
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrap"></div>
+</body>
+
+</html>
