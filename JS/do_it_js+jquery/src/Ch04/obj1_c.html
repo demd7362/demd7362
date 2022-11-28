@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 사용자 정의 객체 </title>
+<script>
+    var tv = new Object(); // type == object
+    tv.color = "white";
+    tv.price = 3000000;
+    tv.info = function(){ // type == function
+        document.write("tv 색상 : "+ this.color+"<br>");
+        document.write("tv 가격 : "+ this.price+"<br>");
+    tv.company = "LG"; // function 뒤에 왔기때문에 안됨
+    } // this.color == tv.color
+
+    var car = { // type == object
+        color : "black", // ,가 아닌 세미콜론 붙이면 에러
+        price : 5000000,
+        name : "sonata",
+        info : function(){
+            document.write("car 색상 : "+ car.color+"<br>");
+            document.write("car 가격 : "+ this.price+"<br>");
+        }
+        // function은 가장 마지막에.
+
+        
+    }; // 세미콜론 안붙여도 되긴 하는데 되도록 붙임 
+
+    document.write("typeof car : "+ typeof car+"<br>");
+    document.write("tv.company : "+ tv.company +"<br>");
+    document.write("car.name : "+ car.name +"<br>");
+
+	document.write("<h1>tv 객체 메서드 호출</h1>");
+    tv.info();
+	document.write("<h1>car 객체 메서드 호출</h1>");
+    car.info();  
+</script>
+</head>
+<body>
+</body>
+</html>

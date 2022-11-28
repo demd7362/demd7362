@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 함수 </title>
+    <script>
+        // 익명객체, synchronized 
+        (function () {
+            let num = 100;
+            function menu() {
+                num += 100;
+                alert(num);
+            }
+            menu();
+        }());
+
+        (function () {
+            let num = 100;
+            function menu() {
+                alert(num);
+            }
+            menu();
+        }());
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

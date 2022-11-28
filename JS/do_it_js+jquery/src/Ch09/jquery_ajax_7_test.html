@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+	$.ajax({
+		url:"http://demd7362.dothome.co.kr/member.php?callback=myFnc",
+		dataType : "jsonp"
+	}).done(function myTest(data){
+		if(data.length>0){
+			let $table = $("<table/>")
+			data.forEach(function(o){
+				$id = o.id;
+				$name = o.name;
+				$email = o.email;
+
+				let trTag = $("<tr/>")
+				trTag.append(
+					$("<td/>").text($id),
+					$("<td/>").text($name),
+					$("<td/>").text($email)
+				);
+				$table.append(trTag);
+			})
+			$(".wrap").append($table);
+		}
+	})
+
+	
+});
+</script>
+</head>
+<body>
+	<div class="wrap"></div>
+</body>
+</html>
