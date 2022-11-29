@@ -1,4 +1,4 @@
-package Ch16.sec03;
+package ch16.sec03;
 
 public class LambdaExample {
     public static void main(String[] args) {

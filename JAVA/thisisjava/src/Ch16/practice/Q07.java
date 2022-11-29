@@ -1,4 +1,4 @@
-package Ch16.practice;
+package ch16.practice;
 
 interface Operator {
     int apply(int x,int y);

@@ -1,4 +1,4 @@
-package Ch16.practice;
+package ch16.practice;
 
 public class Q06 {
     @FunctionalInterface

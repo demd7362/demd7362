@@ -1,4 +1,4 @@
-package Ch16.sec01;
+package ch16.sec01;
 
 
 @FunctionalInterface

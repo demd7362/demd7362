@@ -1,4 +1,4 @@
-package Ch16.sec02.exam02;
+package ch16.sec02.exam02;
 
 public class Button {
     //정적 멤버 인터페이스

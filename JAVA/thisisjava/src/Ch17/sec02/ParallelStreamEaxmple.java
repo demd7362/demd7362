@@ -1,4 +1,4 @@
-package Ch17.sec02;
+package ch17.sec02;
 
 import java.util.ArrayList;
 import java.util.List;

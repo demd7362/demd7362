@@ -1,4 +1,4 @@
-package Ch16.sec04;
+package ch16.sec04;
 
 public class Person {
     void action(Calculable calculable){
