@@ -1,0 +1,33 @@
+package ch19.sec07;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+
+public class SocketClient {
+	ChatServer chatServer; // 서버 필드
+	Socket socket; // 내 포트로 접근해야 하니까 필요
+	DataInputStream dis; // 입력
+	DataOutputStream dos; // 출력
+	String clientIp; // 내 ip
+	String chatName; // 내 닉네임
+	
+	// 생성자
+	public SocketClient(ChatServer chatServer, Socket socket) { // 서버, 클라이언트 소켓(포트)
+		try {
+			this.chatServer = chatServer;
+			this.socket = socket; 
+			// 입출력 구현
+			this.dis = new DataInputStream(socket.getInputStream()); // 소켓에서 읽기?
+			this.dos = new DataOutputStream(socket.getOutputStream()); // 소켓에서 쓰기?
+			InetSocketAddress isa = (InetSocketAddress) socket.getRemoteSocketAddress(); // 소켓에서 ip 주소를 가져온다?
+			this.clientIp = isa.getHostName(); // ip
+			receive();
+		} catch(IOException e) {}
+	}
+	public void receive() {
+		
+	}
+}
