@@ -3,6 +3,8 @@ package chap08.member;
 import java.util.Date;
 
 public class MemberInfo {
+    
+    
     private String id;
     private String password;
     private String name;
@@ -11,6 +13,7 @@ public class MemberInfo {
     public String getId() {
         return id;
     }
+    
     public void setId(String id) {
         this.id = id;
     }
