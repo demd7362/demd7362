@@ -17,9 +17,7 @@ public class Q10 {
 			String filePath = br.readLine();
 			System.out.println("복사할 경로를 입력하세요");
 			String copyFilePath = br.readLine();
-			
-			
-
+		
 			File file = new File(filePath);
 			File copyFile = new File(copyFilePath);
 			

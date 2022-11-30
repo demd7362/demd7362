@@ -1,4 +1,4 @@
-package ch17.Practice;
+package ch17.practice;
 
 import java.util.Arrays;
 import java.util.List;
