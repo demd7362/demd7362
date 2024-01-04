@@ -12,6 +12,8 @@
 + 처음부터 배우는 리액트 네이티브 :pencil:
       
 <h1></h1>
+[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=demd7362)](https://solved.ac/demd7362)
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362)](https://solved.ac/demd7362)
   
 :books: Skills :books:  
 
