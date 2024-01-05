@@ -11,12 +11,9 @@
 + 오라클 SQL과 PL/SQL을 다루는 기술 :page_facing_up:
 + 처음부터 배우는 리액트 네이티브 :pencil:
       
-<h1></h1><img align='right' src="http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362">
+<h1></h1>
 
-[![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362)](https://solved.ac/demd7362)
-
-
+<img align='right' src="http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362">
   
 :books: Skills :books:  
 
