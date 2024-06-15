@@ -8,9 +8,10 @@
 
 + ***used at least once*** <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white"/> <img src="https://img.shields.io/badge/NextJS-000000?style=flat-square&logo=Next.js&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=FastAPI&logoColor=white"/>
 
-<img align="left" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=demd7362&theme=dracula&exclude_repo=clone-web-scrapper,clone-zoom&hide=Procfile&layout=compact&langs_count=8"/>
+---
 
-<img align='left' src="http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362">
+<img align="left" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=demd7362&theme=dracula&exclude_repo=clone-web-scrapper,clone-zoom&hide=Procfile&layout=compact&langs_count=8"/>
+<img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362">
 
 
 
