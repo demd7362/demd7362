@@ -15,7 +15,13 @@ public class HiThere {
         jihunJeong.introduce();
     }
 }
+```
 
+<details>
+  <summary>See more...</summary>
+    <div markdown="1">
+        
+```java
 class Developer implements JobSeeker {
     private final Set<ProgramingLanguage> programingLanguages;
     private final String name;
@@ -227,6 +233,10 @@ class Python extends ProgramingLanguage {
     }
 }
 ```
+
+</div>
+</details>
+
 ---
 
 <img align="left" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=demd7362&theme=dracula&exclude_repo=clone-web-scrapper,clone-zoom&hide=Procfile&layout=compact&langs_count=8"/>
