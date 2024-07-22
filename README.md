@@ -107,7 +107,7 @@ class Python extends ProgramingLanguage {
 }
 
 interface Developer {
-    String getTechDescription();
+    String explainAboutMyTech();
 }
 interface JobSeeker {
     void introduce();
@@ -137,7 +137,7 @@ public class JihunJeong implements Developer, JobSeeker {
             return this;
         }
 
-        public JobSeeker end() {
+        public JihunJeong ready() {
             return new JihunJeong(this.programingLanguages);
         }
     }
@@ -151,7 +151,7 @@ public class JihunJeong implements Developer, JobSeeker {
         return " " + STAR.repeat(count);
     }
     @Override
-    public String getTechDescription() {
+    public String explainAboutMyTech() {
         List<String> descriptions = new ArrayList<>();
         for (ProgramingLanguage programingLanguage : this.programingLanguages) {
             StringBuilder languageDescriptionBuilder = new StringBuilder();
@@ -175,7 +175,7 @@ public class JihunJeong implements Developer, JobSeeker {
     public void introduce() {
         Assert.notEmpty(this.programingLanguages, "아직 저를 소개할 준비가 안됐습니다. 잠시만 기다려주세요.");
         System.out.println("안녕하세요! 저는 %s이구요, %d살입니다.".formatted(NAME, this.myAge));
-        System.out.println(getTechDescription());
+        System.out.println(explainAboutMyTech());
     }
 
     public static void main(String[] args) {
@@ -183,17 +183,16 @@ public class JihunJeong implements Developer, JobSeeker {
                 .iCanDo(new Java(SkillLevel.HIGH).with(new Spring(SkillLevel.HIGH)))
                 .iCanDo(new JavaScript(SkillLevel.HIGH).with(new NestJS(SkillLevel.MEDIUM)).with(new React(SkillLevel.MEDIUM)))
                 .iCanDo(new Python(SkillLevel.LOW).with(new FastApi(SkillLevel.LOW)))
-                .end();
+                .ready();
         jihunJeong.introduce();
     }
 }
 
 ```
-
 ---
 
 <img align="left" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=demd7362&theme=dracula&exclude_repo=clone-web-scrapper,clone-zoom&hide=Procfile&layout=compact&langs_count=8"/>
-<img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362">
+<img algin="right" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=demd7362">
 
 
 
