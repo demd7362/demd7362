@@ -1,6 +1,127 @@
+Execute below code here 👉 https://www.jdoodle.com/ia/1dhT
 
-Hi There :hand:
 ```java
+public class HiThere {
+    public static void main(String[] args) {
+        JobSeeker jihunJeong = Developer.wantToTellYouSomething()
+                .myNameIs("정지훈")
+                .bornIn(1995)
+                .phoneNumberIs("010-4544-7362")
+                .emailAddressIs("demd7362@gmail.com")
+                .iCanDo(new Java(SkillLevel.HIGH).with(new Spring(SkillLevel.HIGH)))
+                .iCanDo(new JavaScript(SkillLevel.HIGH).with(new NestJs(SkillLevel.MEDIUM)).with(new React(SkillLevel.MEDIUM)))
+                .iCanDo(new Python(SkillLevel.LOW).with(new FastApi(SkillLevel.LOW)))
+                .readyToWork();
+        jihunJeong.introduce();
+    }
+}
+
+class Developer implements JobSeeker {
+    private final Set<ProgramingLanguage> programingLanguages;
+    private final String name;
+    private final String email;
+    private final String phoneNumber;
+    private final int age;
+    private static final String STAR = "★";
+    private static final String MESSAGE = "아직 저를 소개할 준비가 안됐습니다.";
+
+    private Developer(String name, int age, String email, String phoneNumber, Set<ProgramingLanguage> programingLanguages) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+        this.programingLanguages = new HashSet<>(programingLanguages);
+    }
+
+    public static DeveloperBuilder wantToTellYouSomething() {
+        return new DeveloperBuilder();
+    }
+
+    public static class DeveloperBuilder {
+        private final Set<ProgramingLanguage> programingLanguages = new HashSet<>();
+        private String name;
+        private int age;
+        private String phoneNumber;
+        private String email;
+
+        public DeveloperBuilder myNameIs(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public DeveloperBuilder bornIn(int year) {
+            this.age = LocalDate.now().getYear() - year + 1;
+            return this;
+        }
+
+        public DeveloperBuilder emailAddressIs(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public DeveloperBuilder phoneNumberIs(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
+        public DeveloperBuilder iCanDo(ProgramingLanguage programingLanguage) {
+            this.programingLanguages.add(programingLanguage);
+            return this;
+        }
+
+        public Developer readyToWork() {
+            Assert.hasText(this.name, MESSAGE);
+            Assert.hasText(this.phoneNumber, MESSAGE);
+            Assert.hasText(this.email, MESSAGE);
+            Assert.isTrue(this.age > 0, MESSAGE);
+            return new Developer(this.name, this.age, this.email, this.phoneNumber, this.programingLanguages);
+        }
+    }
+
+    private String writeStars(SkillLevel skillLevel) {
+        int count = switch (skillLevel) {
+            case HIGH -> 3;
+            case MEDIUM -> 2;
+            case LOW -> 1;
+        };
+        return " " + STAR.repeat(count);
+    }
+
+    private String explainAboutMyTech() {
+        List<String> descriptions = new ArrayList<>();
+        for (ProgramingLanguage programingLanguage : this.programingLanguages) {
+            StringBuilder languageDescriptionBuilder = new StringBuilder();
+            languageDescriptionBuilder.append(programingLanguage.getClass().getSimpleName())
+                    .append("은(는) ")
+                    .append(programingLanguage.description())
+                    .append(writeStars(programingLanguage.getSkillLevel()));
+            descriptions.add(languageDescriptionBuilder.toString());
+            Set<Technology> technologies = programingLanguage.getTechnologies();
+            if (!technologies.isEmpty()) {
+                List<String> skillDescriptions = technologies.stream()
+                        .map(technology -> technology.desciption() + writeStars(technology.getSkillLevel()))
+                        .toList();
+                descriptions.addAll(skillDescriptions);
+            }
+        }
+        return String.join("\n", descriptions);
+    }
+
+    @Override
+    public void introduce() {
+        Assert.notEmpty(this.programingLanguages, MESSAGE);
+        System.out.printf("안녕하세요! 저는 %s이구요, %d살입니다.%n", this.name, this.age);
+        System.out.println(explainAboutMyTech());
+        System.out.printf("구직하고 있습니다. 연락주세요! \nTel %s\nEmail %s", this.phoneNumber, this.email);
+    }
+
+
+}
+
+interface JobSeeker {
+    void introduce();
+}
+
 enum SkillLevel {
     LOW,
     MEDIUM,
@@ -48,8 +169,8 @@ class React extends Technology {
     }
 }
 
-class NestJS extends Technology {
-    public NestJS(SkillLevel skillLevel) {
+class NestJs extends Technology {
+    public NestJs(SkillLevel skillLevel) {
         super(skillLevel);
     }
 
@@ -105,89 +226,6 @@ class Python extends ProgramingLanguage {
         return "문법은 알고 있는 수준이나, 능숙하게 다루는 프레임워크는 없습니다.";
     }
 }
-
-interface Developer {
-    String explainAboutMyTech();
-}
-interface JobSeeker {
-    void introduce();
-}
-
-public class JihunJeong implements Developer, JobSeeker {
-    private final Set<ProgramingLanguage> programingLanguages = new HashSet<>();
-    private static final int BIRTH_YEAR = 1995;
-    private static final String NAME = "정지훈";
-    private int myAge;
-    private static final String STAR = "★";
-
-    private JihunJeong(Set<ProgramingLanguage> programingLanguages) {
-        this.myAge = LocalDate.now().getYear() - BIRTH_YEAR + 1;
-        this.programingLanguages.addAll(programingLanguages);
-    }
-
-    public static TechBuilder iWantToTellYouSomething() {
-        return new TechBuilder();
-    }
-
-    public static class TechBuilder {
-        private final Set<ProgramingLanguage> programingLanguages = new HashSet<>();
-
-        public TechBuilder iCanDo(ProgramingLanguage programingLanguage) {
-            this.programingLanguages.add(programingLanguage);
-            return this;
-        }
-
-        public JihunJeong ready() {
-            return new JihunJeong(this.programingLanguages);
-        }
-    }
-
-    private String writeStars(SkillLevel skillLevel) {
-        int count = switch (skillLevel) {
-            case HIGH -> 3;
-            case MEDIUM -> 2;
-            case LOW -> 1;
-        };
-        return " " + STAR.repeat(count);
-    }
-    @Override
-    public String explainAboutMyTech() {
-        List<String> descriptions = new ArrayList<>();
-        for (ProgramingLanguage programingLanguage : this.programingLanguages) {
-            StringBuilder languageDescriptionBuilder = new StringBuilder();
-            languageDescriptionBuilder.append(programingLanguage.getClass().getSimpleName())
-                    .append("은(는) ")
-                    .append(programingLanguage.description())
-                    .append(writeStars(programingLanguage.getSkillLevel()));
-            descriptions.add(languageDescriptionBuilder.toString());
-            Set<Technology> technologies = programingLanguage.getTechnologies();
-            if (!technologies.isEmpty()) {
-                List<String> skillDescriptions = technologies.stream()
-                        .map(technology -> technology.desciption() + writeStars(technology.getSkillLevel()))
-                        .toList();
-                descriptions.addAll(skillDescriptions);
-            }
-        }
-        return String.join("\n", descriptions);
-    }
-
-    @Override
-    public void introduce() {
-        Assert.notEmpty(this.programingLanguages, "아직 저를 소개할 준비가 안됐습니다. 잠시만 기다려주세요.");
-        System.out.println("안녕하세요! 저는 %s이구요, %d살입니다.".formatted(NAME, this.myAge));
-        System.out.println(explainAboutMyTech());
-    }
-
-    public static void main(String[] args) {
-        JobSeeker jihunJeong = JihunJeong.iWantToTellYouSomething()
-                .iCanDo(new Java(SkillLevel.HIGH).with(new Spring(SkillLevel.HIGH)))
-                .iCanDo(new JavaScript(SkillLevel.HIGH).with(new NestJS(SkillLevel.MEDIUM)).with(new React(SkillLevel.MEDIUM)))
-                .iCanDo(new Python(SkillLevel.LOW).with(new FastApi(SkillLevel.LOW)))
-                .ready();
-        jihunJeong.introduce();
-    }
-}
-
 ```
 ---
 
