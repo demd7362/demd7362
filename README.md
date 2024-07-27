@@ -6,7 +6,6 @@ public class HiThere {
         JobSeeker jihunJeong = Developer.wantToTellYouSomething()
                 .myNameIs("정지훈")
                 .bornIn(1995)
-                .phoneNumberIs("010-4544-7362")
                 .emailAddressIs("demd7362@gmail.com")
                 .iCanDo(new Java(SkillLevel.HIGH).with(new Spring(SkillLevel.HIGH)))
                 .iCanDo(new JavaScript(SkillLevel.HIGH).with(new NestJs(SkillLevel.MEDIUM)).with(new React(SkillLevel.MEDIUM)))
