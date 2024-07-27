@@ -1,17 +1,17 @@
-Execute below code here 👉 https://www.jdoodle.com/ia/1dBw
+Execute below code here 👉 https://www.jdoodle.com/ia/1dBB
 
 ```java
 public class HiThere {
     public static void main(String[] args) {
-        JobSeeker jihunJeong = Developer.wantToTellYouSomething()
+        JobSeeker jobSeeker = Developer.wantToTellYouSomething()
                 .myNameIs("정지훈")
                 .bornIn(1995)
                 .emailAddressIs("demd7362@gmail.com")
-                .iCanDo(new Java(SkillLevel.HIGH).with(new Spring(SkillLevel.HIGH)))
-                .iCanDo(new JavaScript(SkillLevel.HIGH).with(new NestJs(SkillLevel.MEDIUM)).with(new React(SkillLevel.MEDIUM)))
-                .iCanDo(new Python(SkillLevel.LOW).with(new FastApi(SkillLevel.LOW)))
+                .can(new Java(SkillLevel.MEDIUM).with(new Spring(SkillLevel.MEDIUM)))
+                .can(new JavaScript(SkillLevel.HIGH).with(new NestJs(SkillLevel.LOW)).with(new React(SkillLevel.MEDIUM)))
+                .can(new Python(SkillLevel.LOW).with(new FastApi(SkillLevel.LOW)))
                 .readyToWork();
-        jihunJeong.introduce();
+        jobSeeker.introduce();
     }
 }
 ```
@@ -44,7 +44,6 @@ class Developer implements JobSeeker {
         private final Set<ProgramingLanguage> programingLanguages = new HashSet<>();
         private String name;
         private int age;
-        private String phoneNumber;
         private String email;
 
         public DeveloperBuilder myNameIs(String name) {
@@ -62,12 +61,16 @@ class Developer implements JobSeeker {
             return this;
         }
 
-        public DeveloperBuilder iCanDo(ProgramingLanguage programingLanguage) {
+        public DeveloperBuilder can(ProgramingLanguage programingLanguage) {
             this.programingLanguages.add(programingLanguage);
             return this;
         }
 
         public Developer readyToWork() {
+            Assert.notNull(this.name, MESSAGE);
+            Assert.notNull(this.email, MESSAGE);
+            Assert.isTrue(this.age > 0, MESSAGE);
+            Assert.notEmpty(this.programingLanguages, MESSAGE);
             return new Developer(this.name, this.age, this.email, this.programingLanguages);
         }
     }
@@ -103,9 +106,9 @@ class Developer implements JobSeeker {
 
     @Override
     public void introduce() {
-        System.out.printf("안녕하세요! 저는 %s이구요, %d살입니다.%n", this.name, this.age);
+        System.out.printf("안녕하세요. 저는 %s이구요, %d살입니다.%n", this.name, this.age);
         System.out.println(explainAboutMyTech());
-        System.out.printf("구직하고 있습니다. 연락주세요! %s", this.email);
+        System.out.printf("구직하고 있습니다. %s", this.email);
     }
 
 
@@ -121,17 +124,10 @@ enum SkillLevel {
     HIGH
 }
 
+@Getter
+@RequiredArgsConstructor
 abstract class Technology {
     private final SkillLevel skillLevel;
-
-    public Technology(SkillLevel skillLevel) {
-        this.skillLevel = skillLevel;
-    }
-
-    public SkillLevel getSkillLevel() {
-        return skillLevel;
-    }
-
     public abstract String desciption();
 }
 
@@ -167,7 +163,6 @@ class React extends Technology {
         return "함수형 컴포넌트로 웹앱을 만들 수 있습니다. 전역 상태 관리 도구로 redux-toolkit과 zustand를 사용할 수 있습니다.";
     }
 }
-
 class NestJs extends Technology {
     public NestJs(SkillLevel skillLevel) {
         super(skillLevel);
@@ -179,6 +174,8 @@ class NestJs extends Technology {
     }
 }
 
+@Getter
+@RequiredArgsConstructor
 abstract class ProgramingLanguage {
     private final SkillLevel skillLevel;
     private final Set<Technology> technologies = new HashSet<>();
@@ -187,18 +184,6 @@ abstract class ProgramingLanguage {
         this.technologies.add(technology);
         return this;
     }
-
-    public ProgramingLanguage(SkillLevel skillLevel) {
-        this.skillLevel = skillLevel;
-    }
-
-    public SkillLevel getSkillLevel() {
-        return skillLevel;
-    }
-    public Set<Technology> getTechnologies() {
-        return technologies;
-    }
-
     public abstract String description();
 }
 
