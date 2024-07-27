@@ -1,4 +1,4 @@
-Execute below code here 👉 https://www.jdoodle.com/ia/1dhT
+Execute below code here 👉 https://www.jdoodle.com/ia/1dBw
 
 ```java
 public class HiThere {
@@ -26,15 +26,13 @@ class Developer implements JobSeeker {
     private final Set<ProgramingLanguage> programingLanguages;
     private final String name;
     private final String email;
-    private final String phoneNumber;
     private final int age;
     private static final String STAR = "★";
-    private static final String MESSAGE = "아직 저를 소개할 준비가 안됐습니다.";
+    private static final String MESSAGE = "Sorry. I'm not ready yet.";
 
-    private Developer(String name, int age, String email, String phoneNumber, Set<ProgramingLanguage> programingLanguages) {
+    private Developer(String name, int age, String email, Set<ProgramingLanguage> programingLanguages) {
         this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
         this.age = age;
         this.programingLanguages = new HashSet<>(programingLanguages);
     }
@@ -65,22 +63,13 @@ class Developer implements JobSeeker {
             return this;
         }
 
-        public DeveloperBuilder phoneNumberIs(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
         public DeveloperBuilder iCanDo(ProgramingLanguage programingLanguage) {
             this.programingLanguages.add(programingLanguage);
             return this;
         }
 
         public Developer readyToWork() {
-            Assert.hasText(this.name, MESSAGE);
-            Assert.hasText(this.phoneNumber, MESSAGE);
-            Assert.hasText(this.email, MESSAGE);
-            Assert.isTrue(this.age > 0, MESSAGE);
-            return new Developer(this.name, this.age, this.email, this.phoneNumber, this.programingLanguages);
+            return new Developer(this.name, this.age, this.email, this.programingLanguages);
         }
     }
 
@@ -115,10 +104,9 @@ class Developer implements JobSeeker {
 
     @Override
     public void introduce() {
-        Assert.notEmpty(this.programingLanguages, MESSAGE);
         System.out.printf("안녕하세요! 저는 %s이구요, %d살입니다.%n", this.name, this.age);
         System.out.println(explainAboutMyTech());
-        System.out.printf("구직하고 있습니다. 연락주세요! \nTel %s\nEmail %s", this.phoneNumber, this.email);
+        System.out.printf("구직하고 있습니다. 연락주세요! %s", this.email);
     }
 
 
@@ -134,10 +122,16 @@ enum SkillLevel {
     HIGH
 }
 
-@Getter
-@RequiredArgsConstructor
 abstract class Technology {
     private final SkillLevel skillLevel;
+
+    public Technology(SkillLevel skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
+    public SkillLevel getSkillLevel() {
+        return skillLevel;
+    }
 
     public abstract String desciption();
 }
@@ -186,8 +180,6 @@ class NestJs extends Technology {
     }
 }
 
-@Getter
-@RequiredArgsConstructor
 abstract class ProgramingLanguage {
     private final SkillLevel skillLevel;
     private final Set<Technology> technologies = new HashSet<>();
@@ -195,6 +187,17 @@ abstract class ProgramingLanguage {
     public ProgramingLanguage with(Technology technology) {
         this.technologies.add(technology);
         return this;
+    }
+
+    public ProgramingLanguage(SkillLevel skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
+    public SkillLevel getSkillLevel() {
+        return skillLevel;
+    }
+    public Set<Technology> getTechnologies() {
+        return technologies;
     }
 
     public abstract String description();
