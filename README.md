@@ -1,5 +1,4 @@
-Hi There 👋
-- I'm looking for BE(Spring, Nest.js) / FE(React, Vue) roles
+Hi 👋
 
 ---
 
